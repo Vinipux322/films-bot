@@ -46,16 +46,13 @@ async def on_message(message):
                         if type(maybethis[k]) is not list:
                             mystring = str(maybethis[k]).lower()
                             if mystring == v.lower():
-                                #await client.send_message(message.channel, "dobavleno "+v+" "+mystring
                                 parseCount = parseCount + 1
                                 if parseCount == len(parse):
                                     goodfilmes.append(maybethis)
                         else:
-                            #await client.send_message(message.channel, maybethis[k])
                             for value in maybethis[k]:
                                 mystring = str(value).lower()
                                 if mystring == v.lower():
-                                    #await client.send_message(message.channel, "dobavleno "+v+" "+mystring)
                                     parseCount = parseCount + 1
                                     if parseCount == len(parse):
                                         goodfilmes.append(maybethis)
@@ -71,7 +68,6 @@ async def on_message(message):
             em.add_field(name="Год и страна", value=film['production'], inline=True)
             em.add_field(name="Длительность", value=str(round(film['duration']/60)) + " мин.", inline=True)
             em.add_field(name="Рейтинг", value=film['rating'], inline=True)
-            #em.add_field(name="Описание", value=film['description'], inline=True)
             tags = ""
             if len(film['tags']) > 0:
                 i = 0
